@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  db:
+    container_name: new_db1
+    image: postgres
+    restart: always
+    ports:
+      - '5440:5432'
+    environment:
+      - POSTGRES_USER=${user}
+      - POSTGRES_PASSWORD=${password}
+      - POSTGRES_DB=${dbname}
+  app:
+    container_name: golang-auth
+    image: pranit007/golang-auth
+    ports:
+      - '8000:8000'
+    environment:
+      - host=${host}
+      - user=${user}
+      - password=${password}
+      - port=${port}
+      - dbname=${dbname}
+      - SECRET=${SECRET}
+      - pass=${pass}
+      - email=${email}
