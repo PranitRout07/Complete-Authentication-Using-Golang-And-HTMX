@@ -14,7 +14,7 @@ func VerifyEmail(email string) string{
 	pass := os.Getenv("pass")
 	//company mail
 	from := os.Getenv("email")
-	fmt.Println(pass)
+	// fmt.Println(pass)
 
 	to := []string{email}
 
@@ -47,4 +47,33 @@ func generateOTP() string {
 		OTP = OTP + strconv.Itoa(x)
 	}
 	return OTP
+}
+
+
+func SuccessfulRegistrationNotification(email string){
+
+
+	pass := os.Getenv("pass")
+	from := os.Getenv("email")
+	// fmt.Println(pass)
+
+	to := []string{email}
+
+	// smtp server configuration.
+	smtpHost := "smtp.gmail.com"
+	smtpPort := "587"
+
+	message := []byte("Successfully registered. You can now login to our website.")
+
+	// Authentication.
+	auth := smtp.PlainAuth("", from, pass, smtpHost)
+	fmt.Println(auth)
+
+	// Sending email.
+	err := smtp.SendMail(smtpHost+":"+smtpPort, auth, from, to, message)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("Successful register email is sent!")
+
 }

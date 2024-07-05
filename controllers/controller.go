@@ -138,6 +138,7 @@ func (s *TempDetail) RegisterAfterOTPConfirmation(w http.ResponseWriter, r *http
 	}
 
 	if res != nil {
+		middlewares.SuccessfulRegistrationNotification(s.Email)
 		ctx := make(map[string]interface{})
 		ctx["result"] = "Successfully added!"
 		t, _ := template.ParseFiles("templates/responseAfterRegister.html")
