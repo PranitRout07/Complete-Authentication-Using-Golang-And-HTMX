@@ -24,3 +24,5 @@ services:
       - SECRET=${SECRET}
       - pass=${pass}
       - email=${email}
+    depends_on: 
+      - db 

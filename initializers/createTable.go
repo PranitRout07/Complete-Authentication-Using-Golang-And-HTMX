@@ -2,6 +2,7 @@ package initializers
 
 import (
 	"log"
+	"time"
 )
 
 func Check_If_Table_Of_Same_Name_Exists()bool {
@@ -12,6 +13,7 @@ func Check_If_Table_Of_Same_Name_Exists()bool {
 }
 
 func Create_table() {
+	time.Sleep(1*time.Second)
 	if Check_If_Table_Of_Same_Name_Exists() {
 		log.Println("Table exists already..")
 		return
