@@ -16,7 +16,7 @@ services:
     ports:
       - '8000:8000'
     environment:
-      - host=${host}
+      - host=db
       - user=${user}
       - password=${password}
       - port=${port}
