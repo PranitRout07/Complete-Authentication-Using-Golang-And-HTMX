@@ -10,6 +10,8 @@ services:
       - POSTGRES_USER=${user}
       - POSTGRES_PASSWORD=${password}
       - POSTGRES_DB=${dbname}
+    networks:
+      - my_network
   app:
     container_name: golang-auth
     image: pranit007/golang-auth
@@ -26,3 +28,8 @@ services:
       - email=${email}
     depends_on: 
       - db 
+    networks:
+      - my_network
+
+networks:
+  my_network:
