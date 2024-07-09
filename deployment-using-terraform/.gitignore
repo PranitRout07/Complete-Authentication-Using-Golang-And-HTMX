@@ -1,0 +1,7 @@
+terraform.tfvars
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+modules/ec2_instance/id_rsa
+modules/ec2_instance/id_rsa.pub
